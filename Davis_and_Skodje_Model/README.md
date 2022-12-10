@@ -7,10 +7,10 @@ This project consists of the MatLAB code to solve the Davis-Skodje Model propose
 ```
 
 ```math
-\frac{\text{d}\psi_2}{\text{d}t}=- \gamma \psi_2 %2B \frac{(\gamma-1)\psi_1 %2B \gamma \psi_1^2}{(1 %2B \psi_1)^2}
+\frac{\text{d}\psi_2}{\text{d}t}=- \gamma \psi_2 + \frac{(\gamma-1)\psi_1 + \gamma \psi_1^2}{(1 + \psi_1)^2}
 ```
 
-where ```math \gamma>1 ``` gives the stiffness of the ODE system. 
+where $\gamma>1$ gives the stiffness of the ODE system. 
 
 The following methods for the reduction of the chemical kinetics are used:
 * the Quasi-steady state approximation (QSSA) [2]
