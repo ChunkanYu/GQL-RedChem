@@ -28,5 +28,7 @@ where $\textbf{M}_s$ is the mass matrix defined as:
 The GQL_RedChem package requires the Matlab coupled with Cantera. 
 
 References:
+
 [1] Bykov, V., V. Gol'Dshtein, and U. Maas. "Simple global reduction technique based on decomposition approach." Combustion Theory and Modelling 12.2 (2008): 389-405.
+
 [2] Yu, U., V. Bykov and U. Maas, "Global quasi-linearization (gql) versus QSSA for a hydrogen–air auto-ignition problem." Physical Chemistry Chemical Physics 20.16 (2018): 10770–10779.
