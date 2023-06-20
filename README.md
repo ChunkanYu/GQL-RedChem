@@ -5,5 +5,6 @@ The GQL method is mainly introduced and developed for the reduction of chemical 
 The starting point is the ODE system with thermo-kinetic state vector $\psi$:
 
 ```math
-\frac{\text{d}\psi}{\text{d}t}=F(\psi)
+\frac{\text{d}\psi}{\text{d}t}=F(\psi),
 ```
+where ```math \psi ``` is the vector of thermo-kinetic state.
