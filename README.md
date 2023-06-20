@@ -18,9 +18,9 @@ where $\textbf{M}_s$ is the mass matrix defined as:
 
 ```math
 \textbf{M}_s = \begin{pmatrix}
-                  Z_s ~ Z_f\\
+                  Z_s ~ Z_f
                   \end{pmatrix} \cdot \begin{pmatrix}
                   \tilde{Z}_s \\
-                  \textbf{0}\\
+                  \textbf{0}
                   \end{pmatrix},
 ```
