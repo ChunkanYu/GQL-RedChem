@@ -25,7 +25,11 @@ where $\textbf{M}_s$ is the mass matrix defined as:
                   \end{pmatrix},
 ```
 
-The GQL_RedChem package requires the Matlab coupled with Cantera. 
+The GQL_RedChem package requires the Matlab coupled with Cantera.
+
+How to use?
+1) main_0dSimulation.m: calculate the detailed chemistry, GQL reduced chemistry and QSSA reduced chemistry.
+2) main_GQL_RedChem.m: code to find out the GQL reduced chemistry, which will be stored in GQL_Ms.mat. Note that there are many candidates stored in the GQL_Ms.mat. One needs to select and test them in main_0dSimulation for his validation for a wider range of application.
 
 References:
 
