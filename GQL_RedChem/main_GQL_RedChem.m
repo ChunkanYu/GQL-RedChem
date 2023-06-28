@@ -3,7 +3,7 @@ clear all;clc; close all;
 reactor_system='isobar';
 find_GQL_type = 'local'; % option={'global','local'}
 n_GQL_attempt = 1e5; % the max. number of attempt to find out the GQL reduced chemistry
-n_GQL_max = 50; % the max. number of GQL candidates for certain dimension
+n_GQL_max = 10; % the max. number of GQL candidates for certain dimension
 error_GQL = 10; % in percentage
 Nf = 2; % dimension of fast invariant subspace
 
@@ -62,8 +62,7 @@ for i = 1 : n_GQL_attempt
     if (100*abs(1-IDT_GQL_try/IDT_detailed) < error_GQL) & (out.x(end)==max(tel))
         n_GQL_candidate = n_GQL_candidate + 1;
         semilogx(out.x,out.y(1,:)); hold on; pause(1);
-        GQL_candidate(:,:,n_GQL_candidate) = Ms; %%%%%%%%%%%%%%% !!!!!!!!!!!!!!!!!!!!!
-        Zs_tilde_candidate(:,:,n_GQL_candidate) = Zs_tilde(4:end,:);
+        GQL_candidate(:,:,n_GQL_candidate) = Ms; 
         fprintf(['A possible ',num2str(nsp-Nf-3),'-D GQL reduced chemistry is found. Total: ',...
             num2str(n_GQL_candidate),'\n']);
         if n_GQL_candidate > n_GQL_max
@@ -71,4 +70,6 @@ for i = 1 : n_GQL_attempt
         end
     end
 end
+
+save GQL_Ms.mat GQL_candidate;
 
