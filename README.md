@@ -25,7 +25,9 @@ where $\textbf{M}_s$ is the mass matrix defined as:
                   \end{pmatrix},
 ```
 
-The GQL_RedChem package requires the Matlab coupled with Cantera.
+The "Davis_and_Skodje_Model" includes one simple case example (coming soon).
+
+In "GQL_RedChem" package, one can find the main code for the generation of GQL reduced chemistry. They require the Matlab coupled with Cantera.
 
 How to use?
 1) main_0dSimulation.m: calculate the detailed chemistry, GQL reduced chemistry and QSSA reduced chemistry.
