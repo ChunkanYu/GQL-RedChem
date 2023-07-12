@@ -21,7 +21,7 @@ The main.m file provides:
 * the detailed solution
 * the QSSA solution
 * the ILDM solution
-* the GQL solution with 0th order and 1st order approximation
+* the GQL solution with 0th order approximation
 
 
 
