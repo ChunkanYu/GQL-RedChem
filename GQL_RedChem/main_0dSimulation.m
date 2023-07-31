@@ -8,6 +8,8 @@ QSS_species = {'OH','O'};
 
 T0=2000; p0=1e5; Phi=1.0;
 
+residence_time = 0.4e-3; % this is only important for the PSR model
+
 gas = Solution('./mechanism_H2_Air/Warnatz.cti');
 % gas = Solution('./mechanism_H2_Air/ELTE2014.cti');
 % gas = Solution('./mechanism_H2_Air/grimech30.cti');
@@ -28,9 +30,25 @@ X(in2) = 79/21;
 
 mw = molecularWeights(gas);
 set(gas,'Temperature',T0,'Pressure',p0,'MoleFractions',X);
+
+% the following block is only important for PSR model
+if strcmp(reactor_system,'PSR')
+    PSR_parameter.w_i_unburnt = massFractions(gas);
+   PSR_parameter.tau_res = residence_time;
+   PSR_parameter.h_mass_unburnt = enthalpy_mass(gas);
+end
+
 nsp = nSpecies(gas);
+
+if strcmp(reactor_system,'PSR')
+    equilibrate(gas,'HP');
+    y0 = [temperature(gas)
+    massFractions(gas)];
+else
 y0 = [temperature(gas)
     massFractions(gas)];
+end
+
 tel = [0 1e+3];
 
 Ms=eye(nsp+1,nsp+1);
@@ -50,7 +68,7 @@ end
 
 options = odeset('Mass',Ms(:,:,1),'RelTol',1.e-8,'AbsTol',1.e-10);
 
-out = ode15s(@ode_rhs,tel,y0,options,gas,mw,reactor_system);
+out = ode15s(@ode_rhs,tel,y0,options,gas,mw,reactor_system,PSR_parameter);
 
 Temperature_results = out.y(1,:);
 time = out.x;
